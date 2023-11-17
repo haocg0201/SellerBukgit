@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(createTableKho);
 
         // Hoadon
-        String createTableHoaDon = "create table HOADON(mahoadon INTEGER PRIMARY KEY AUTOINCREMENT,manv INTEGER REFERENCES NHANVIEN(manv),tenkhachmuahang TEXT, ngaylap INTEGER, tongtien INTEGER, trangthaidonhang INTEGER)";
+        String createTableHoaDon = "create table HOADON(mahoadon INTEGER PRIMARY KEY AUTOINCREMENT,manv INTEGER REFERENCES NHANVIEN(manv),tenkhachmuahang TEXT, ngaylap TEXT, tongtien INTEGER, trangthaidonhang INTEGER)";
         db.execSQL(createTableHoaDon);
 
         // Hoadonchitiet
