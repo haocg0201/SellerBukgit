@@ -21,7 +21,7 @@ public class NhanVienDAO {
         this.dbHelper = new DBHelper(context);
     }
 
-    public ArrayList<NhanVien> selectAllNhanVien(){
+    public ArrayList<NhanVien> getAllNhanVien(){
         ArrayList<NhanVien> list = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cs = db.rawQuery("SELECT * FROM NHANVIEN",null);
