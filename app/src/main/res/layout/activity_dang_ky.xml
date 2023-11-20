@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DangKy"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="351dp"
+        android:layout_height="256dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/book" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Gmail"
+        android:inputType="textPassword"
+        android:background="@drawable/ic_custom"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/edtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên Tài Khoản"
+        android:background="@drawable/ic_custom"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Mật Khẩu"
+        android:inputType="textPassword"
+        android:background="@drawable/ic_custom"
+        android:layout_margin="10dp"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="20sp"
+        android:background="@drawable/background_button"
+        android:layout_marginTop="20dp"/>
+
+
+</LinearLayout>
