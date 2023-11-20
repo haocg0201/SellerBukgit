@@ -2,7 +2,7 @@ package com.haocg.ourduan1nhom8.model;
 
 public class Sach {
     private int maSach, maLoai;
-    private String tenSach, tenTacGia;
+    private String tenLoai,tenSach, tenTacGia;
     private int giaMua, giaBan, lanTaiBan;
     private String tenNhaSanXuat;
     private int namSanXuat;
@@ -10,6 +10,21 @@ public class Sach {
     private int soLuongBayBan;
 
     public Sach() {
+    }
+
+    public Sach(int maSach, int maLoai, String tenLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan) {
+        this.maSach = maSach;
+        this.maLoai = maLoai;
+        this.tenLoai = tenLoai;
+        this.tenSach = tenSach;
+        this.tenTacGia = tenTacGia;
+        this.giaMua = giaMua;
+        this.giaBan = giaBan;
+        this.lanTaiBan = lanTaiBan;
+        this.tenNhaSanXuat = tenNhaSanXuat;
+        this.namSanXuat = namSanXuat;
+        this.viTriQuayHang = viTriQuayHang;
+        this.soLuongBayBan = soLuongBayBan;
     }
 
     public Sach(int maSach, int maLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan) {
@@ -125,5 +140,13 @@ public class Sach {
 
     public void setSoLuongBayBan(int soLuongBayBan) {
         this.soLuongBayBan = soLuongBayBan;
+    }
+
+    public String getTenLoai() {
+        return tenLoai;
+    }
+
+    public void setTenLoai(String tenLoai) {
+        this.tenLoai = tenLoai;
     }
 }
