@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mHome"
+        android:title="Trang chủ"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLSach"
+        android:title="Quản lý sách"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLLS"
+        android:title="Quản lý loại sách"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLKho"
+        android:title="Quản lý kho"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLHD"
+        android:title="Quản lý hóa đơn"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLHDCT"
+        android:title="Quản lý hóa đơn chi tiết"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/mQLNV"
+        android:title="Quản lý nhân viên"
+        android:icon="@drawable/ic_home"/>
+
+    <item android:title="Thống kê">
+        <menu>
+            <item
+                android:id="@+id/mTKDT"
+                android:title="Thống kê doanh thu"
+                android:icon="@drawable/ic_home"/>
+            <item
+                android:id="@+id/mTKTOP"
+                android:title="Thống kê sách hàng đầu"
+                android:icon="@drawable/ic_home"/>
+            <item
+                android:id="@+id/mTKTonKho"
+                android:title="Thống kê tồn kho"
+                android:icon="@drawable/ic_home"/>
+        </menu>
+    </item>
+
+    <item android:title="Tài khoản">
+        <menu>
+            <item
+                android:id="@+id/mSuaTTTK"
+                android:title="Sửa thông tin tài khoản"
+                android:icon="@drawable/ic_home"/>
+            <item
+                android:id="@+id/mDoiMK"
+                android:title="Đổi mật khẩu"
+                android:icon="@drawable/ic_home"/>
+            <item
+                android:id="@+id/mDangXuat"
+                android:title="Đăng xuất"
+                android:icon="@drawable/ic_home"/>
+        </menu>
+    </item>
+
+</menu>
