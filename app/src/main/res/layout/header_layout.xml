@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="169.3dp"
+    android:background="#F4EEB2"
+    android:gravity="center|left">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp">
+
+        <ImageView
+            android:scaleType="center"
+            android:layout_width="111dp"
+            android:layout_height="111dp"
+            android:id="@+id/avtImg"
+            android:src="@mipmap/avt" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Hello anh đẹp zai"
+        android:textColor="#0D22EC"
+        android:id="@+id/txtMainUserName"
+        android:textSize="20.1618sp"/>
+
+</LinearLayout>
