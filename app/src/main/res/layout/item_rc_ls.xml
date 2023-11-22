@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="66.1618dp"
+    android:orientation="horizontal"
+    android:gravity="center|left"
+    android:layout_marginTop="6.1618dp"
+    android:background="@drawable/item_frame_and_bg">
+
+    <LinearLayout
+        android:layout_weight="8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center|left"
+        android:background="@drawable/item_frame_and_bg">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:textColor="#5841E6"
+        android:id="@+id/txtIdLS"
+        android:textSize="16.1618dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ten loại sach"
+        android:layout_marginLeft="15dp"
+        android:textColor="#5841E6"
+        android:id="@+id/txtTenLS"
+        android:textSize="14.1618dp"/>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit"
+        android:id="@+id/ivEditLS"/>
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete"
+        android:id="@+id/ivDeleteLS"/>
+
+</LinearLayout>
