@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.haocg.ourduan1nhom8.db.DBHelper;
+import com.haocg.ourduan1nhom8.model.Kho;
 import com.haocg.ourduan1nhom8.model.NhanVien;
 import com.haocg.ourduan1nhom8.model.Sach;
 
@@ -42,6 +43,20 @@ public class SachDAO {
             }while (cs.moveToNext());
         }
         return list;
+    }
+
+    public Sach getSachAndSoLuongBayBanByMaSach(String maSach){
+        Sach s = new Sach();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("SELECT masach,soluongbayban FROM SACH  where masach=?",new String[]{maSach});
+        if(cs.getCount() != 0){
+            cs.moveToFirst();
+            s = new Sach(
+                    cs.getInt(0),
+                    cs.getInt(1)
+            );
+        }
+        return s;
     }
 
     public boolean insertSach(Sach s){
@@ -87,6 +102,14 @@ public class SachDAO {
 
         long row =db.delete("SACH","masach=?",new String[]{(maSach)});
         return (row == -1?false:true);
+    }
+
+    public boolean updateSoLuongSach(Sach s){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("soluongbayban",s.getSoLuongBayBan());
+        long row = db.update("SACH",values,"masach=?",new String[]{String.valueOf(s.getMaSach())});
+        return (row!=-1?true:false);
     }
 
 }

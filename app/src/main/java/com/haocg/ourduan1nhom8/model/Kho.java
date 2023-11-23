@@ -1,9 +1,18 @@
 package com.haocg.ourduan1nhom8.model;
 
 public class Kho {
-    private int viTri, maSach, soLuong;
+    private int viTri, maSach;
+    private String tenSach;
+    private int soLuong;
 
     public Kho() {
+    }
+
+    public Kho(int viTri, int maSach, String tenSach, int soLuong) {
+        this.viTri = viTri;
+        this.maSach = maSach;
+        this.tenSach = tenSach;
+        this.soLuong = soLuong;
     }
 
     public Kho(int viTri, int maSach, int soLuong) {
@@ -39,5 +48,13 @@ public class Kho {
 
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
+    }
+
+    public String getTenSach() {
+        return tenSach;
+    }
+
+    public void setTenSach(String tenSach) {
+        this.tenSach = tenSach;
     }
 }

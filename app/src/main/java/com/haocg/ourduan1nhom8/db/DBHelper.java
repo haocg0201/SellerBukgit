@@ -48,12 +48,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO NHANVIEN VALUES(1,'Nhân Viên A','nhanviena','123','nhanviena@gmail.com',0,'11/15/2023',1)," +
                                                 "(2,'Quản lý','admin','123','admin@gmail.com',1,'11/15/2023',1)");
 
-        db.execSQL("INSERT INTO SACH VALUES(1,1,'Doraemon','F.J.F',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',30)," +
-                                            "(2,2,'Java for kid 3+','F.Frank',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',30)");
+        db.execSQL("INSERT INTO SACH VALUES(1,1,'Doraemon','F.J.F',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',3000)," +
+                                            "(2,2,'Java for kid 3+','F.Frank',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',3000)");
 
         db.execSQL("INSERT INTO LOAISACH VALUES(1,'Truyện tranh'),(2,'Sách lập trình'),(3,'Sách giáo khoa'),(4,'Sách Vẽ')");
 
-        db.execSQL("INSERT INTO KHO VALUES(1,1,100),(2,2,100)");
+        db.execSQL("INSERT INTO KHO VALUES(1,1,1000),(2,2,1000)");
 
         db.execSQL("INSERT INTO HOADON VALUES(1,1,'Nguyễn Văn Vừa lòng em chưa','11/15/2023',7000,0)");
 
