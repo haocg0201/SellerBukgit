@@ -54,6 +54,11 @@ public class Sach {
         this.soLuongBayBan = soLuongBayBan;
     }
 
+    public Sach(int maSach, int soLuongBayBan) {
+        this.maSach = maSach;
+        this.soLuongBayBan = soLuongBayBan;
+    }
+
     public int getMaSach() {
         return maSach;
     }
