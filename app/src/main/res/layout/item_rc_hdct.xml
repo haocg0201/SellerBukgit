@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center|left"
+    android:layout_marginTop="6.1618dp"
+    android:padding="3dp"
+    android:background="@drawable/item_frame_and_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_weight="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left"
+            android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã hóa đơn chi tiết"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textColor="#5841E6"
+            android:id="@+id/txtIndexHDCT"
+            android:textSize="16.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên sách"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTenSachHDCT"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã hóa đơn"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtMaHDHDCT"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtSoLuongHDCT"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá tiền"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtGiaTienHDCT"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giảm giá: 0%"
+            android:layout_marginLeft="15dp"
+            android:textColor="#FB335B"
+            android:id="@+id/txtGiamGiaHDCT"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thành tiền"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtThanhTienHDCT"
+            android:textSize="14.1618dp"/>
+
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center"-->
+<!--            android:background="@drawable/item_frame_and_bg">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/edit"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:id="@+id/ivEditHoaDon"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_delete"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:id="@+id/ivDeleteHoaDon"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_eye_24"-->
+<!--                android:id="@+id/ivDisplayHDCT"/>-->
+<!--        </LinearLayout>-->
+    </LinearLayout>
+
+</LinearLayout>

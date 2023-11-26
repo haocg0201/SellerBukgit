@@ -1,7 +1,9 @@
 package com.haocg.ourduan1nhom8.model;
 
 public class HoaDonChiTiet {
-    private int maHDCT, maSach, maHoaDon, soLuong, giaTien, thanhTien;
+    private int maHDCT, maSach;
+    private String tenSach;
+    private int maHoaDon, soLuong, giaTien, thanhTien;
 
     public HoaDonChiTiet() {
     }
@@ -17,6 +19,16 @@ public class HoaDonChiTiet {
 
     public HoaDonChiTiet(int maSach, int maHoaDon, int soLuong, int giaTien, int thanhTien) {
         this.maSach = maSach;
+        this.maHoaDon = maHoaDon;
+        this.soLuong = soLuong;
+        this.giaTien = giaTien;
+        this.thanhTien = thanhTien;
+    }
+
+    public HoaDonChiTiet(int maHDCT, int maSach, String tenSach, int maHoaDon, int soLuong, int giaTien, int thanhTien) {
+        this.maHDCT = maHDCT;
+        this.maSach = maSach;
+        this.tenSach = tenSach;
         this.maHoaDon = maHoaDon;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
@@ -69,5 +81,13 @@ public class HoaDonChiTiet {
 
     public void setThanhTien(int thanhTien) {
         this.thanhTien = thanhTien;
+    }
+
+    public String getTenSach() {
+        return tenSach;
+    }
+
+    public void setTenSach(String tenSach) {
+        this.tenSach = tenSach;
     }
 }
