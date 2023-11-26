@@ -2,65 +2,49 @@ package com.haocg.ourduan1nhom8.fragment;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.haocg.ourduan1nhom8.R;
+import com.haocg.ourduan1nhom8.adapter.HoaDonChiTietAdapter;
+import com.haocg.ourduan1nhom8.dao.HoaDonChiTietDAO;
+import com.haocg.ourduan1nhom8.model.HoaDonChiTiet;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HoaDonChiTietFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HoaDonChiTietFragment extends Fragment {
+import java.util.ArrayList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class HoaDonChiTietFragment extends DialogFragment {
+    RecyclerView rcvHDCT;
+    HoaDonChiTietDAO hoaDonChiTietDAO;
+    private HoaDonChiTietAdapter hoaDonChiTietAdapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HoaDonChiTietFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HoaDonChiTietFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HoaDonChiTietFragment newInstance(String param1, String param2) {
-        HoaDonChiTietFragment fragment = new HoaDonChiTietFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+//    public static HoaDonChiTietFragment newInstance(int maHoaDon){
+//        HoaDonChiTietFragment hoaDonChiTietFragment = new HoaDonChiTietFragment();
+//
+//        // ừm xem thấy bảo truyền id vào thông qua Bundle , thử xem sao
+//        Bundle args = new Bundle();
+//        args.putInt("ID",maHoaDon);
+//        hoaDonChiTietFragment.setArguments(args);
+//
+//        return hoaDonChiTietFragment;
+//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hoa_don_chi_tiet, container, false);
+        View view = inflater.inflate(R.layout.fragment_hoa_don_chi_tiet, container, false);
+        rcvHDCT = view.findViewById(R.id.rcvHDCT);
+        hoaDonChiTietDAO = new HoaDonChiTietDAO(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rcvHDCT.setLayoutManager(linearLayoutManager);
+        ArrayList<HoaDonChiTiet> list = hoaDonChiTietDAO.getAllHoaDonChiTietModified();
+        hoaDonChiTietAdapter = new HoaDonChiTietAdapter(getContext(),list);
+        rcvHDCT.setAdapter(hoaDonChiTietAdapter);
+        return view;
     }
 }

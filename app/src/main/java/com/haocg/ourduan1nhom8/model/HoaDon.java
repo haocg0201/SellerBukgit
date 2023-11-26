@@ -2,10 +2,21 @@ package com.haocg.ourduan1nhom8.model;
 
 public class HoaDon {
     private int maHoaDon, maNV;
+    private String tenNV;
     private String tenKhachHang, ngayLap;
     private int tongTien, trangThaiDonHang;
 
     public HoaDon() {
+    }
+
+    public HoaDon(int maHoaDon, int maNV, String tenNV, String tenKhachHang, String ngayLap, int tongTien, int trangThaiDonHang) {
+        this.maHoaDon = maHoaDon;
+        this.maNV = maNV;
+        this.tenNV = tenNV;
+        this.tenKhachHang = tenKhachHang;
+        this.ngayLap = ngayLap;
+        this.tongTien = tongTien;
+        this.trangThaiDonHang = trangThaiDonHang;
     }
 
     public HoaDon(int maHoaDon, int maNV, String tenKhachHang, String ngayLap, int tongTien, int trangThaiDonHang) {
@@ -71,5 +82,13 @@ public class HoaDon {
 
     public void setTrangThaiDonHang(int trangThaiDonHang) {
         this.trangThaiDonHang = trangThaiDonHang;
+    }
+
+    public String getTenNV() {
+        return tenNV;
+    }
+
+    public void setTenNV(String tenNV) {
+        this.tenNV = tenNV;
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_cn_16"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Sủa thông tin hóa đơn"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/bg_blue_cn_16"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="text"
+            android:layout_marginTop="16dp"
+            android:hint="Tên người mua"
+            android:id="@+id/edtTenNguoiMuaHoaDon"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:focusable="false"
+            android:textCursorDrawable="@null"
+            android:hint="ngày lập hóa đơn"
+            android:id="@+id/edtNgayLapHoaDon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lưu"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnLuuHoaDon"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hủy"
+                android:alpha="0.7"
+                android:textSize="14sp"
+                android:backgroundTint="@color/mau_chu_dao"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnHuyLuuHoaDon"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

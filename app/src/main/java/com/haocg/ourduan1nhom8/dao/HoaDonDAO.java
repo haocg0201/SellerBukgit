@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.haocg.ourduan1nhom8.db.DBHelper;
 import com.haocg.ourduan1nhom8.model.HoaDon;
+import com.haocg.ourduan1nhom8.model.HoaDonChiTiet;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,28 @@ public class HoaDonDAO {
         return list;
     }
 
-    public boolean insertHoaDon(HoaDon hd){
+    public ArrayList<HoaDon> getAllHoaDonModified(){
+        ArrayList<HoaDon> list = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("SELECT mahoadon, hd.manv, nv.hoten, tenkhachmuahang, ngaylap, tongtien, trangthaidonhang FROM HOADON hd, NHANVIEN nv WHERE hd.manv = nv.manv",null);
+        if(cs.getCount() != 0){
+            cs.moveToFirst();
+            do{
+                list.add(new HoaDon(
+                        cs.getInt(0),
+                        cs.getInt(1),
+                        cs.getString(2),
+                        cs.getString(3),
+                        cs.getString(4),
+                        cs.getInt(5),
+                        cs.getInt(6)
+                ));
+            }while (cs.moveToNext());
+        }
+        return list;
+    }
+
+    public boolean insertHoaDon(HoaDon hd, HoaDonChiTiet hdct){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("manv",hd.getMaNV());
@@ -46,7 +68,16 @@ public class HoaDonDAO {
         values.put("tongtien",hd.getTongTien());
         values.put("trangthaidonhang",hd.getTrangThaiDonHang());
         long row =db.insert("HOADON",null,values);
-        return (row == -1?false:true);
+
+        ContentValues valuesHDCT = new ContentValues();
+        valuesHDCT.put("masach",hdct.getMaSach());
+        valuesHDCT.put("mahoadon",row);
+        valuesHDCT.put("soluong",hdct.getSoLuong());
+        valuesHDCT.put("giatien",hdct.getGiaTien());
+        valuesHDCT.put("thanhtien",hdct.getThanhTien());
+        long rowHDCT =db.insert("HOADONCHITIET",null,valuesHDCT);
+        db.close();
+        return ((row != -1 && rowHDCT != -1)?true:false);
     }
 
     public boolean updateHoaDon(HoaDon hd){
@@ -68,7 +99,8 @@ public class HoaDonDAO {
         //
         //
 
-        long row =db.delete("HOADON","mahoadon=?",new String[]{String.valueOf(maHoaDon)});
-        return (row == -1?0:1);
+        long rowHD =db.delete("HOADON","mahoadon=?",new String[]{String.valueOf(maHoaDon)});
+        long rowHDCT =db.delete("HOADONCHITIET","mahoadon=?",new String[]{String.valueOf(maHoaDon)});
+        return ((rowHD != -1 && rowHDCT != -1)?1:0);
     }
 }
