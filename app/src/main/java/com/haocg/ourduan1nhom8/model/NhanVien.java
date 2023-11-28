@@ -4,8 +4,47 @@ public class NhanVien {
     private int maNV;
     private String hoTen, taiKhoan, matKhau, email, vaiTro, ngayCap;
     private int trangThaiTK;
+    private String anhNV;
+    private int luong;
 
     public NhanVien() {
+    }
+
+    public NhanVien(int maNV, String hoTen, String taiKhoan, String matKhau, String email, String vaiTro, String ngayCap, int trangThaiTK, String anhNV, int luong) {
+        this.maNV = maNV;
+        this.hoTen = hoTen;
+        this.taiKhoan = taiKhoan;
+        this.matKhau = matKhau;
+        this.email = email;
+        this.vaiTro = vaiTro;
+        this.ngayCap = ngayCap;
+        this.trangThaiTK = trangThaiTK;
+        this.anhNV = anhNV;
+        this.luong = luong;
+    }
+
+    public NhanVien(String hoTen, String taiKhoan, String matKhau, String email, String vaiTro, String ngayCap, int trangThaiTK, String anhNV, int luong) {
+        this.hoTen = hoTen;
+        this.taiKhoan = taiKhoan;
+        this.matKhau = matKhau;
+        this.email = email;
+        this.vaiTro = vaiTro;
+        this.ngayCap = ngayCap;
+        this.trangThaiTK = trangThaiTK;
+        this.anhNV = anhNV;
+        this.luong = luong;
+    }
+
+    public NhanVien(int maNV, String hoTen, String taiKhoan, String matKhau, String email, String vaiTro, String ngayCap, int trangThaiTK, String anhNV) {
+        this.maNV = maNV;
+        this.hoTen = hoTen;
+        this.taiKhoan = taiKhoan;
+        this.matKhau = matKhau;
+        this.email = email;
+        this.vaiTro = vaiTro;
+        this.ngayCap = ngayCap;
+        this.trangThaiTK = trangThaiTK;
+        this.anhNV = anhNV;
     }
 
     public NhanVien(int maNV, String hoTen, String taiKhoan, String matKhau, String email, String vaiTro, String ngayCap, int trangThaiTK) {
@@ -91,5 +130,21 @@ public class NhanVien {
 
     public void setTrangThaiTK(int trangThaiTK) {
         this.trangThaiTK = trangThaiTK;
+    }
+
+    public String getAnhNV() {
+        return anhNV;
+    }
+
+    public void setAnhNV(String anhNV) {
+        this.anhNV = anhNV;
+    }
+
+    public int getLuong() {
+        return luong;
+    }
+
+    public void setLuong(int luong) {
+        this.luong = luong;
     }
 }

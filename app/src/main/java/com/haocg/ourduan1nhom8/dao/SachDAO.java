@@ -22,7 +22,7 @@ public class SachDAO {
     public ArrayList<Sach> getAllSach(){
         ArrayList<Sach> list = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cs = db.rawQuery("SELECT masach,maloai,l.tenloai,tensach,tentacgia,giamua,giaban,lantaiban,tennhasanxuat,namsanxuat,vitriquayhang,soluongbayban FROM SACH s,LOAISACH l where s.maloai = l.maloaisach",null);
+        Cursor cs = db.rawQuery("SELECT masach,maloai,l.tenloai,tensach,tentacgia,giamua,giaban,lantaiban,tennhasanxuat,namsanxuat,vitriquayhang,soluongbayban,anhsach FROM SACH s,LOAISACH l where s.maloai = l.maloaisach",null);
         if(cs.getCount() != 0){
             cs.moveToFirst();
             do{
@@ -38,7 +38,8 @@ public class SachDAO {
                         cs.getString(8),
                         cs.getInt(9),
                         cs.getString(10),
-                        cs.getInt(11)
+                        cs.getInt(11),
+                        cs.getString(12)
                 ));
             }while (cs.moveToNext());
         }

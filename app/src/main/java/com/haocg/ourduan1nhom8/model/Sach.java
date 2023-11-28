@@ -8,8 +8,25 @@ public class Sach {
     private int namSanXuat;
     private String viTriQuayHang;
     private int soLuongBayBan;
+    private String anhSach;
 
     public Sach() {
+    }
+
+    public Sach(int maSach, int maLoai, String tenLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan, String anhSach) {
+        this.maSach = maSach;
+        this.maLoai = maLoai;
+        this.tenLoai = tenLoai;
+        this.tenSach = tenSach;
+        this.tenTacGia = tenTacGia;
+        this.giaMua = giaMua;
+        this.giaBan = giaBan;
+        this.lanTaiBan = lanTaiBan;
+        this.tenNhaSanXuat = tenNhaSanXuat;
+        this.namSanXuat = namSanXuat;
+        this.viTriQuayHang = viTriQuayHang;
+        this.soLuongBayBan = soLuongBayBan;
+        this.anhSach = anhSach;
     }
 
     public Sach(int maSach, int maLoai, String tenLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan) {
@@ -153,5 +170,13 @@ public class Sach {
 
     public void setTenLoai(String tenLoai) {
         this.tenLoai = tenLoai;
+    }
+
+    public String getAnhSach() {
+        return anhSach;
+    }
+
+    public void setAnhSach(String anhSach) {
+        this.anhSach = anhSach;
     }
 }
