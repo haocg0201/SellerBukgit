@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center|left"
+    android:layout_marginTop="6.1618dp"
+    android:padding="3dp"
+    android:background="@drawable/item_frame_and_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Nhân viên"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTenNhanVien"
+            android:textSize="16.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtEmailNhanVien"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vai trò"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtRoleNhanVien"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày cấp tài khoản"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtNgayCapTKNV"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lương"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtLuongNV"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái tài khoản"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTrangThaiTKNV"
+            android:textSize="14.1618dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/imgNhanVien"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/item_frame_and_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/ivEditNhanVien"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/ivDeleteNhanVien"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_eye_24"
+                android:id="@+id/ivDisplayNhanVien"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF5B89"
+        android:text="Khóa tài khoản"
+        android:id="@+id/btnLockNhanVien"/>
+
+</LinearLayout>

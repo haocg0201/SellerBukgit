@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_cn_16"
+    android:layout_margin="26dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Thêm nhân viên"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/bg_blue_cn_16"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="text"
+            android:layout_marginTop="16dp"
+            android:hint="Tên nhân viên"
+            android:id="@+id/edtTenNVAddForm"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="text"
+            android:layout_marginTop="16dp"
+            android:hint="Tài khoản"
+            android:id="@+id/edtTKNVAddForm"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            android:hint="Mật khẩu"
+            android:id="@+id/edtMatKhauNVAddForm"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="16dp"
+            android:hint="Email"
+            android:id="@+id/edtEmailNVAddForm"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vai trò "
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spRoleNVAddForm"
+                android:background="@drawable/bg_white_cn_10_border_gray" />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="none"
+            android:layout_marginTop="16dp"
+            android:focusable="false"
+            android:textCursorDrawable="@null"
+            android:hint="Ngày cấp"
+            android:id="@+id/edtNgayCapTKNVAddForm"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="number"
+            android:layout_marginTop="16dp"
+            android:hint="Mức lương"
+            android:id="@+id/edtLuongNVAddForm"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnThemNhanVien"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_cn_10"
+                android:text="Thêm"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hủy"
+                android:alpha="0.7"
+                android:textSize="14sp"
+                android:backgroundTint="@color/mau_chu_dao"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnHuyThemNhanVien"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

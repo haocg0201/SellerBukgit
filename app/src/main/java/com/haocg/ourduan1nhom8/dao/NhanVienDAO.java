@@ -36,7 +36,9 @@ public class NhanVienDAO {
                         cs.getString(4),
                         cs.getString(5),
                         cs.getString(6),
-                        cs.getInt(7)
+                        cs.getInt(7),
+                        cs.getString(8),
+                        cs.getInt(9)
                 ));
             }while (cs.moveToNext());
         }
@@ -53,6 +55,8 @@ public class NhanVienDAO {
         values.put("vaitro",nv.getVaiTro());
         values.put("ngaycap",nv.getNgayCap());
         values.put("trangthaitk",nv.getTrangThaiTK());
+        values.put("anhnv",nv.getAnhNV());
+        values.put("luong",nv.getLuong());
         long row =db.insert("NHANVIEN",null,values);
         return (row == -1?false:true);
     }
@@ -67,6 +71,8 @@ public class NhanVienDAO {
         values.put("vaitro",nv.getVaiTro());
         values.put("ngaycap",nv.getNgayCap());
         values.put("trangthaitk",nv.getTrangThaiTK());
+        values.put("anhnv",nv.getAnhNV());
+        values.put("luong",nv.getLuong());
         long row =db.update("NHANVIEN",values,"manv=?",new String[]{String.valueOf(nv.getMaNV())});
         return (row == -1?false:true);
     }

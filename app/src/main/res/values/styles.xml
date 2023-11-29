@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Full screen dialog style -->
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+</resources>
