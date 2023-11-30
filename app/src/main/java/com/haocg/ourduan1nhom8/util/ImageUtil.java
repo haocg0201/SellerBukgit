@@ -65,6 +65,7 @@ public class ImageUtil {
             File oldImageFile = new File(oldImagepath);
             if(oldImageFile.exists()){
                 oldImageFile.delete();
+                System.out.println("đã xóa ảnh với imagePath: " + oldImagepath);
             }
         }
     }

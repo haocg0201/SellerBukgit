@@ -79,6 +79,17 @@ public class KhoDAO {
         return (row!=-1?1:0);
     }
 
+    public boolean deleteKhoByMaSach(int maSach){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Cursor cs = db.rawQuery("SELECT masach, soluong FROM KHO WHERE masach=?",new String[]{String.valueOf(maSach)});
+        if(cs.getCount()!= 0){
+            long row = db.delete("KHO","masach=?",new String[]{String.valueOf(maSach)});
+            return (row!=-1?true:false);
+        }
+        return true;
+    }
+
     public boolean updateSoLuongKho(Kho k){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();

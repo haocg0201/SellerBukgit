@@ -29,6 +29,20 @@ public class Sach {
         this.anhSach = anhSach;
     }
 
+    public Sach(int maLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan, String anhSach) {
+        this.maLoai = maLoai;
+        this.tenSach = tenSach;
+        this.tenTacGia = tenTacGia;
+        this.giaMua = giaMua;
+        this.giaBan = giaBan;
+        this.lanTaiBan = lanTaiBan;
+        this.tenNhaSanXuat = tenNhaSanXuat;
+        this.namSanXuat = namSanXuat;
+        this.viTriQuayHang = viTriQuayHang;
+        this.soLuongBayBan = soLuongBayBan;
+        this.anhSach = anhSach;
+    }
+
     public Sach(int maSach, int maLoai, String tenLoai, String tenSach, String tenTacGia, int giaMua, int giaBan, int lanTaiBan, String tenNhaSanXuat, int namSanXuat, String viTriQuayHang, int soLuongBayBan) {
         this.maSach = maSach;
         this.maLoai = maLoai;

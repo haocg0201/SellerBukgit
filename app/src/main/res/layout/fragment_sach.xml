@@ -5,10 +5,214 @@
     android:layout_height="match_parent"
     tools:context=".fragment.SachFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/scrollViewSach">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_16"
+            android:layout_margin="5dp"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="Thao tác quản lý sách"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/bg_blue_cn_16"/>
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="140dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:id="@+id/imgSachQLSach"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại sách "
+                    android:textSize="15sp"
+                    android:layout_marginRight="5dp"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spLoaiSachQLSach"
+                    android:background="@drawable/bg_white_cn_10_border_gray" />
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="text"
+                android:layout_marginTop="16dp"
+                android:hint="Tên đầu sách"
+                android:id="@+id/edtTenSachQlSach"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="text"
+                android:layout_marginTop="16dp"
+                android:hint="Tên tác giả"
+                android:id="@+id/edtTenTGQLSach"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_cn_10_border_gray"
+                    android:padding="12dp"
+                    android:inputType="number"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="5dp"
+                    android:hint="Giá mua"
+                    android:id="@+id/edtGiaMuaQLSach"/>
+
+                <EditText
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_cn_10_border_gray"
+                    android:padding="12dp"
+                    android:inputType="number"
+                    android:layout_marginTop="16dp"
+                    android:hint="Giá bán"
+                    android:id="@+id/edtGiaBanQLSach"/>
+            </LinearLayout>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="number"
+                android:layout_marginTop="16dp"
+                android:hint="Lần tái bản"
+                android:id="@+id/edtLanTaiBanQLSach"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_cn_10_border_gray"
+                    android:padding="12dp"
+                    android:inputType="text"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="5dp"
+                    android:hint="Tên nhà sản xuất"
+                    android:id="@+id/edtTenNhaSanXuatQLSach"/>
+
+                <EditText
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_cn_10_border_gray"
+                    android:padding="12dp"
+                    android:inputType="number"
+                    android:layout_marginTop="16dp"
+                    android:hint="Năm sản xuất"
+                    android:id="@+id/edtNamSanXuatQLSach"/>
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="text"
+                android:layout_marginTop="16dp"
+                android:hint="Vị trí quầy hàng"
+                android:id="@+id/edtViTriQuayHangQLSach"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="number"
+                android:layout_marginTop="16dp"
+                android:hint="Số lượng bày bán"
+                android:id="@+id/edtSoLuongBayBanQLSach"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Thêm"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_btn_cn_10"
+                    android:id="@+id/btnThemSachQLSach"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sửa"
+                    android:textSize="14sp"
+                    android:backgroundTint="@color/mau_chu_dao"
+                    android:background="@drawable/bg_btn_cn_10"
+                    android:id="@+id/btnSuaSachQLSach"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:layout_marginTop="20dp"
+                android:text="Danh sách Sách trên kệ"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/bg_blue_cn_16"/>
+
+            <!-- TODO: Update blank fragment layout -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="666dp"
+                android:padding="5dp"
+                tools:listitem="@layout/item_rc_sach"
+                android:id="@+id/rcvSach"/>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

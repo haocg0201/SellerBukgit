@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center|left"
+    android:layout_marginTop="6.1618dp"
+    android:padding="3dp"
+    android:background="@drawable/item_frame_and_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên sách"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTenSachItemSach"
+            android:textSize="16.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại Sách"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtLoaiSachItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên tác giả"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTenTGItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá mua"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtGiaMuaItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá bán"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtGiaBanItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lần tái bản"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtLanTaiBanItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên nhà sản xuất"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtTenNhaSanXuatItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm sản xuất"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtNamSanXuatItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vị trí quầy hàng"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtViTriQuayHangItemSach"
+            android:textSize="14.1618dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng bày bán"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5841E6"
+            android:id="@+id/txtSoLuongBayBanItemSach"
+            android:textSize="14.1618sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/imgSachItemSach"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/item_frame_and_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/ivEditSachItemSach"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:layout_marginBottom="15dp"
+                android:id="@+id/ivDeleteSachItemSach"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_eye_24"
+                android:id="@+id/ivDisplaySachItemSach"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

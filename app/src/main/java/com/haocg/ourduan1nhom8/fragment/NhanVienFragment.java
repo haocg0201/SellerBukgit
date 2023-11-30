@@ -261,10 +261,10 @@ public class NhanVienFragment extends DialogFragment {
             // Kiểm tra xem selectedImageBitmap có giá trị null không
             if (selectedImageBitmap != null) {
                 // Gọi phương thức saveImageToApp để lưu ảnh vào thư mục ứng dụng
-                File savedImageFile = imageUtil.saveImageToApp(selectedImageBitmap);
+                File saveImageFile = imageUtil.saveImageToApp(selectedImageBitmap);
 
                 // Lấy đường dẫn của ảnh đã lưu
-                savedImagePath = savedImageFile.getAbsolutePath();
+                savedImagePath = saveImageFile.getAbsolutePath();
             } else {
                 // Xử lý trường hợp selectedImageBitmap là null
                 Toast.makeText(getContext(), "Chưa có ảnh mới, dùng ảnh cũ (nếu có) hoặc mặc định", Toast.LENGTH_SHORT).show();
