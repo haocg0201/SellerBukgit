@@ -73,6 +73,7 @@ public class SachDAO {
         values.put("namsanxuat",s.getNamSanXuat());
         values.put("vitriquayhang",s.getViTriQuayHang());
         values.put("soluongbayban",s.getSoLuongBayBan());
+        values.put("anhsach",s.getAnhSach());
         long row =db.insert("SACH",null,values);
         return (row == -1?false:true);
     }
@@ -90,18 +91,19 @@ public class SachDAO {
         values.put("namsanxuat",s.getNamSanXuat());
         values.put("vitriquayhang",s.getViTriQuayHang());
         values.put("soluongbayban",s.getSoLuongBayBan());
+        values.put("anhsach",s.getAnhSach());
         long row =db.update("SACH",values,"masach=?",new String[]{String.valueOf(s.getMaSach())});
         return (row == -1?false:true);
     }
 
-    public boolean deleteSach(String maSach){
+    public boolean deleteSach(int maSach){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         //
         //
         //
 
-        long row =db.delete("SACH","masach=?",new String[]{(maSach)});
+        long row =db.delete("SACH","masach=?",new String[]{(String.valueOf(maSach))});
         return (row == -1?false:true);
     }
 
@@ -111,6 +113,19 @@ public class SachDAO {
         values.put("soluongbayban",s.getSoLuongBayBan());
         long row = db.update("SACH",values,"masach=?",new String[]{String.valueOf(s.getMaSach())});
         return (row!=-1?true:false);
+    }
+
+    public boolean isBookExist(String bookName) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM SACH WHERE tensach = ?", new String[]{bookName});
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+
+        cursor.close();
+        db.close();
+
+        return count > 0;
     }
 
 }
