@@ -15,6 +15,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        //Admin
+        String createTabletbAdmin = "CREATE TABLE ADMIN(MAAD TEXT PRIMARY KEY,HOTEN TEXT,MATKHAU TEXT, LOAITK TEXT )";
+        db.execSQL(createTabletbAdmin);
         // NhanVien
         String createTableNhanVien = "create table NHANVIEN(manv INTEGER PRIMARY KEY AUTOINCREMENT,hoten TEXT,taikhoan TEXT, matkhau TEXT,email TEXT, vaitro TEXT, ngaycap TEXT,trangthaitk INTEGER,anhnv TEXT,luong INTEGER)";
         db.execSQL(createTableNhanVien);
@@ -45,7 +49,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(createTableGioHang);
 
         // insert mẫu
-        db.execSQL("INSERT INTO NHANVIEN VALUES(1,'Nhân Viên A','nhanviena','123','nhanviena@gmail.com','nv','11/15/2023',1,'',1000)," +
+
+        db.execSQL("insert into ADMIN VALUES('nhanvien1','NGHIÊM VAN THỊNH','12345','Admin')");
+
+        db.execSQL("INSERT INTO NHANVIEN VALUES(1,'Nhân Viên A','nhanviena','123','nhanviena@gmail.com','nv','11/15/2023',0,'',1000)," +
                                                 "(2,'Quản lý phụ','admin','123','admin@gmail.com','ad','11/15/2023',1,'',1000)," +
                 "(3,'Quản lý boss','adminssr','123','admin@gmail.com','adssr','11/15/2023',1,'',1000)");
 

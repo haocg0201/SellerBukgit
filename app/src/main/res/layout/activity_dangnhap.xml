@@ -32,7 +32,7 @@
 
     </LinearLayout>
     <EditText
-        android:id="@+id/edtUserName"
+        android:id="@+id/edtUserNameLoginForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập Email/Tên tài khoản"
@@ -40,7 +40,7 @@
         android:layout_margin="10dp"
         />
     <EditText
-        android:id="@+id/edtPass"
+        android:id="@+id/edtPasswordLoginForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mật Khẩu"
@@ -58,13 +58,13 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_login_login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đăng Nhập"
         android:textColor="@color/white"
         android:layout_marginHorizontal="20sp"
-        android:background="@drawable/background_button"
+        android:backgroundTint="@color/black"
         android:layout_marginTop="20dp"/>
 
 
