@@ -19,6 +19,7 @@ public class NhanVienDAO {
 
     public NhanVienDAO(Context context) {
         this.dbHelper = new DBHelper(context);
+        sharedPreferences = context.getSharedPreferences("THONGTIN",Context.MODE_PRIVATE);
     }
 
     public ArrayList<NhanVien> getAllNhanVien(){
@@ -88,20 +89,23 @@ public class NhanVienDAO {
         return (row == -1?0:1);
     }
 
-    public boolean checkLogin(String taiKhoan, String matKhau){
+    public int checkLogin(String taiKhoan, String matKhau){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cs = db.rawQuery("SELECT * FROM NHANVIEN WHERE taikhoan = ? AND matkhau = ?",new String[]{taiKhoan,matKhau});
         if(cs.getCount() != 0){
             cs.moveToFirst();
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("name",cs.getString(1));
-            editor.putString("un",cs.getString(2));
-            editor.putString("pw",cs.getString(3));
-            editor.putString("role",cs.getString(5));
-            editor.apply();
-            return true;
+            int status = cs.getInt(7);
+            if(status == 1){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name",cs.getString(1));
+                editor.putString("user",cs.getString(2));
+                editor.putString("pass",cs.getString(3));
+                editor.putString("role",cs.getString(5));
+                editor.apply();
+                return 1; // dn
+            } else return -1; // locked
         }else{
-            return false;
+            return 0; // sai tk or mk
         }
     }
 

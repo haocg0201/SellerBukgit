@@ -130,6 +130,7 @@ public class KeSachAdapter extends RecyclerView.Adapter<KeSachAdapter.MyViewHold
                         }
                         if(gioHangDAO.insertGioHang(gioHangNew)){
                             Toast.makeText(context,"Đã thêm vào giỏ hàng, chọn thêm đi :))",Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
                         }else Toast.makeText(context,"Địa lợi, nhân hòa tuy nhiên không nhân thời :(, chưa thêm vào giỏ hàng",Toast.LENGTH_SHORT).show();
                     }
                 });

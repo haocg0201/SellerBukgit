@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView avtImg = headerView.findViewById(R.id.avtImg);
         Glide.with(this).load(R.mipmap.avt).into(avtImg);
 
-//        sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
-//        currentUserName = sharedPreferences.getString("","");
-//        txtCurrentUserName.setText("Xin chào anh đz \n" + currentUserName);
+        sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
+        currentUserName = sharedPreferences.getString("name","");
+        txtCurrentUserName.setText("Xin chào anh đz \n" + currentUserName);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

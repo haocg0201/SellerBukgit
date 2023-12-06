@@ -23,8 +23,14 @@
             android:exported="true"
             android:label="@string/title_activity_seller_buk_main"></activity>
         <activity
-            android:name=".Welcome"
-            android:exported="false" />
+            android:name=".DangNhap"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".QuenMatKhau"
             android:exported="false" />
@@ -32,16 +38,11 @@
             android:name=".DangKy"
             android:exported="false" />
         <activity
-            android:name=".DangNhap"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Welcome"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
