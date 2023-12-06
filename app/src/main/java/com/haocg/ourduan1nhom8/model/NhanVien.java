@@ -10,6 +10,8 @@ public class NhanVien {
     public NhanVien() {
     }
 
+
+
     public NhanVien(int maNV, String hoTen, String taiKhoan, String matKhau, String email, String vaiTro, String ngayCap, int trangThaiTK, String anhNV, int luong) {
         this.maNV = maNV;
         this.hoTen = hoTen;

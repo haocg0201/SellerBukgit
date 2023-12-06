@@ -97,6 +97,7 @@ public class NhanVienDAO {
             int status = cs.getInt(7);
             if(status == 1){
                 SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("id", String.valueOf(cs.getInt(0)));
                 editor.putString("name",cs.getString(1));
                 editor.putString("user",cs.getString(2));
                 editor.putString("pass",cs.getString(3));
