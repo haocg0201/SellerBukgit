@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_cn_16"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:id="@+id/ivAnhSachDSSachItem"/>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTenSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="Ten sach" />
+
+            <TextView
+                android:id="@+id/txtLoaiSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="Loai sach" />
+
+            <TextView
+                android:id="@+id/txtTenTGSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="Ten TG" />
+
+            <TextView
+                android:id="@+id/txtNhaSXSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="nha sx" />
+
+            <TextView
+                android:id="@+id/txtNamSXSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="Nam sx" />
+
+            <TextView
+                android:id="@+id/txtLanTBSachDSSachItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="Tai ban" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="20dp"
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:alpha="0.8"
+        android:text="Số lượng cửa hàng đang bày bán: "
+        android:id="@+id/txtSoLuongBayBanInfSach"
+        android:padding="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:text="Số lượng"
+                android:padding="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_cn_10"
+                android:text=""
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:id="@+id/txtGiamSoLuongMua"/>
+
+            <EditText
+                android:gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="4"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:id="@+id/edtSoLuongMua"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_cn_10"
+                android:text=""
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:id="@+id/txtTangSoLuongMua"/>
+
+        </LinearLayout>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/dividerBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F44040"
+            android:alpha="0.8"
+            android:text="Tổng tiền thanh toán: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F44040"
+            android:alpha="0.8"
+            android:text="Tổng tiền thanh toán "
+            android:id="@+id/txtTongSoTienThanhToan"
+            android:padding="16dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mua ngay"
+        android:alpha="0.7"
+        android:textSize="14sp"
+        android:backgroundTint="@color/mau_chu_dao"
+        android:background="@drawable/bg_btn_cn_10"
+        android:id="@+id/btnMuaNgayInfSach"/>
+</LinearLayout>

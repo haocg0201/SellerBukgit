@@ -46,6 +46,66 @@ public class SachDAO {
         return list;
     }
 
+    public ArrayList<Sach> getAllSachByMaLoaiSach(int maLoaiSach){
+        ArrayList<Sach> list = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("SELECT masach,maloai,l.tenloai,tensach,tentacgia,giamua,giaban,lantaiban,tennhasanxuat,namsanxuat,vitriquayhang,soluongbayban,anhsach FROM SACH s,LOAISACH l where s.maloai = l.maloaisach AND s.maloai = ?",new String[]{String.valueOf(maLoaiSach)});
+        if(cs.getCount() != 0){
+            cs.moveToFirst();
+            do{
+                list.add(new Sach(
+                        cs.getInt(0),
+                        cs.getInt(1),
+                        cs.getString(2),
+                        cs.getString(3),
+                        cs.getString(4),
+                        cs.getInt(5),
+                        cs.getInt(6),
+                        cs.getInt(7),
+                        cs.getString(8),
+                        cs.getInt(9),
+                        cs.getString(10),
+                        cs.getInt(11),
+                        cs.getString(12)
+                ));
+            }while (cs.moveToNext());
+        }
+        return list;
+    }
+
+    public ArrayList<Sach> searchSach(String keyword) {
+        ArrayList<Sach> list = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT masach,maloai,l.tenloai,tensach,tentacgia,giamua,giaban,lantaiban,tennhasanxuat,namsanxuat,vitriquayhang,soluongbayban,anhsach FROM SACH s,LOAISACH l " +
+                "WHERE s.maloai = l.maloaisach " +
+                "AND (tensach LIKE ? OR tentacgia LIKE ?)";
+
+        Cursor cs = db.rawQuery(query, new String[]{"%" + keyword + "%", "%" + keyword + "%"});
+
+        if (cs.getCount() != 0) {
+            cs.moveToFirst();
+            do {
+                list.add(new Sach(
+                        cs.getInt(0),
+                        cs.getInt(1),
+                        cs.getString(2),
+                        cs.getString(3),
+                        cs.getString(4),
+                        cs.getInt(5),
+                        cs.getInt(6),
+                        cs.getInt(7),
+                        cs.getString(8),
+                        cs.getInt(9),
+                        cs.getString(10),
+                        cs.getInt(11),
+                        cs.getString(12)
+                ));
+            } while (cs.moveToNext());
+        }
+        return list;
+    }
+
     public Sach getSachAndSoLuongBayBanByMaSach(String maSach){
         Sach s = new Sach();
         SQLiteDatabase db = dbHelper.getReadableDatabase();

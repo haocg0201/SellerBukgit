@@ -41,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(createTableHoaDonChiTiet);
 
         //Giohang
-        String createTableGioHang = "create table GIOHANG(magiohang INTEGER PRIMARY KEY AUTOINCREMENT,masach INTEGER,manv INTEGER, tensach TEXT, gia INTEGER, soluong INTEGER)";
+        String createTableGioHang = "create table GIOHANG(magiohang INTEGER PRIMARY KEY AUTOINCREMENT,masach INTEGER,manv INTEGER, tensach TEXT, gia INTEGER, soluong INTEGER, tongtien INTEGER, anhsanpham TEXT)";
         db.execSQL(createTableGioHang);
 
         // insert mẫu
@@ -60,7 +60,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO HOADONCHITIET VALUES(1,1,1,1,3500,3500),(2,2,1,1,3500,3500)");
 
-        db.execSQL("INSERT INTO GIOHANG VALUES(1,1,1,'Doraemon',3500,1),(2,2,1,'Java for kid 3+',3500,1)");
+        db.execSQL("INSERT INTO GIOHANG VALUES(1,1,1,'Doraemon',3500,1,3500,''),(2,2,1,'Java for kid 3+',3500,1,3500,'')");
     }
 
     @Override

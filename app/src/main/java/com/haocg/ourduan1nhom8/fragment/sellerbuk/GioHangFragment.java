@@ -1,4 +1,4 @@
-package com.haocg.ourduan1nhom8.fragment;
+package com.haocg.ourduan1nhom8.fragment.sellerbuk;
 
 import android.os.Bundle;
 

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.sellerbuk.KeSachFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:titleTextColor="@color/white"
+            android:id="@+id/toolbarSellerBukKeSach"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/mau_chu_dao"
+            android:alpha="0.6"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/editTextSearchSach"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:hint="Search"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/bg_img_border_10dp"
+                    android:inputType="text"
+                    android:maxLines="1"/>
+
+                <ImageButton
+                    android:id="@+id/imageButtonSearchSach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/mau_chu_dao"
+                    android:alpha="0.6"
+                    android:layout_marginRight="5dp"
+                    android:src="@android:drawable/ic_menu_search"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="5dp"
+                    app:cardCornerRadius="12.5dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:id="@+id/ivAvatarMini"/>
+                </androidx.cardview.widget.CardView>
+                <ImageButton
+                    android:id="@+id/imageButtonCartSach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/mau_chu_dao"
+                    android:alpha="0.6"
+                    android:src="@drawable/baseline_shopping_cart_24"/>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvHorizontalLoaiSachSellerBuk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:divider="@android:color/darker_gray"
+            tools:listitem="@layout/item_rc_ls_search"
+            android:layout_marginTop="2dp"
+            android:dividerHeight="1dp"/>
+
+        <View
+            android:layout_marginTop="2dp"
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.5"
+            android:background="?android:attr/listDivider" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvDanhSachSachSellerBuk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:divider="@android:color/darker_gray"
+            tools:listitem="@layout/item_rc_ds_sach"
+            android:dividerHeight="1dp"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

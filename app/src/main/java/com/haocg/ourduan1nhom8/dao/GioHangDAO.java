@@ -17,10 +17,16 @@ public class GioHangDAO {
         this.dbHelper = new DBHelper(context);
     }
 
+
     public ArrayList<GioHang> getAllGioHangByMaNV(String maNV){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         ArrayList<GioHang> list = new ArrayList<>();
-        Cursor cs = db.rawQuery("SELECT *FROM GIOHANG WHERE manv = ?",new String[]{maNV});
+        String query = "";
+        Cursor cs;
+        if(!maNV.isEmpty() && maNV != null){
+            cs = db.rawQuery("SELECT *FROM GIOHANG WHERE manv = ?",new String[]{maNV});
+        }else cs = db.rawQuery("SELECT *FROM GIOHANG",null);
+
         if(cs.getCount()!=0){
             cs.moveToFirst();
             do {
@@ -30,12 +36,53 @@ public class GioHangDAO {
                         cs.getInt(2),
                         cs.getString(3),
                         cs.getInt(4),
-                        cs.getInt(5)
+                        cs.getInt(5),
+                        cs.getInt(6),
+                        cs.getString(7)
                 ));
             }while (cs.moveToNext());
         }
         return list;
     }
+
+    public boolean isSachExistInGioHang(int masach) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("GIOHANG", null, "masach = ?", new String[]{String.valueOf(masach)}, null, null, null);
+
+        boolean isExist = cursor.getCount() > 0;
+
+        cursor.close();
+        db.close();
+
+        return isExist;
+    }
+
+    public GioHang getGioHangByMaSach(int maSach) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("GIOHANG", null, "masach = ?", new String[]{String.valueOf(maSach)}, null, null, null);
+
+        GioHang gioHang = null;
+
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            // Đọc thông tin từ Cursor và tạo đối tượng GioHang
+            gioHang = new GioHang();
+            gioHang.setMaGioHang(cursor.getInt(0));
+            gioHang.setMaSach(cursor.getInt(1));
+            gioHang.setMaNV(cursor.getInt(2));
+            gioHang.setTenSach(cursor.getString(3));
+            gioHang.setGia(cursor.getInt(4));
+            gioHang.setSoLuong(cursor.getInt(5));
+            gioHang.setTongTien(cursor.getInt(6));
+            gioHang.setAnhSanPham(cursor.getString(7));
+        }
+
+        cursor.close();
+        db.close();
+
+        return gioHang;
+    }
+
 
     public boolean insertGioHang(GioHang gh){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -45,6 +92,7 @@ public class GioHangDAO {
         values.put("tensach",gh.getTenSach());
         values.put("gia",gh.getGia());
         values.put("soluong",gh.getSoLuong());
+        values.put("tongtien",gh.getTongTien());
         long row = db.insert("GIOHANG",null,values);
         return(row!=-1?true:false);
     }
@@ -57,7 +105,17 @@ public class GioHangDAO {
         values.put("tensach",gh.getTenSach());
         values.put("gia",gh.getGia());
         values.put("soluong",gh.getSoLuong());
+        values.put("tongtien",gh.getTongTien());
         long row = db.update("GIOHANG",values,"magiohang=?",new String[]{String.valueOf(gh.getMaGioHang())});
+        return(row!=-1?true:false);
+    }
+
+    public boolean updateGioHangByMaGioHang(int maGiohang,int soLuong, int tongTien){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("soluong",soLuong);
+        values.put("tongtien",tongTien);
+        long row = db.update("GIOHANG",values,"magiohang=?",new String[]{String.valueOf(maGiohang)});
         return(row!=-1?true:false);
     }
 
