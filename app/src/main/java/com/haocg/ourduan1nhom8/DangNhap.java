@@ -35,6 +35,7 @@ public class DangNhap extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
                 String user = edtUser.getText().toString();
                 String pass = edtPassword.getText().toString();
                 if (user.equals("") || pass.equals("")){
@@ -43,9 +44,15 @@ public class DangNhap extends AppCompatActivity {
                     if(nvDAO.checkLogin(user,pass) == 1){
                         Toast.makeText(DangNhap.this, "Dang nhap thanh cong", Toast.LENGTH_SHORT).show();
                         remember(user,pass);
-                        startActivity(new Intent(DangNhap.this,MainActivity.class));
+                        String role = sharedPreferences.getString("role","");
+                        System.out.println("================================ role: " + role);
+                        if(role.equalsIgnoreCase("nv")){
+                            startActivity(new Intent(DangNhap.this, SellerBukMainActivity.class));
+                        }else {
+                            startActivity(new Intent(DangNhap.this,MainActivity.class));
+                        }
                     }else if(nvDAO.checkLogin(user,pass) == -1){
-                        Toast.makeText(DangNhap.this, "Tai khoan da bi xoa", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DangNhap.this, "Tai khoan da bi khoa", Toast.LENGTH_SHORT).show();
                     }else Toast.makeText(DangNhap.this, "Sai Tk hoac Mk", Toast.LENGTH_SHORT).show();
                 }
             }
