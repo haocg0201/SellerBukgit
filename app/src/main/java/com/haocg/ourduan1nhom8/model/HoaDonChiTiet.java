@@ -8,6 +8,13 @@ public class HoaDonChiTiet {
     public HoaDonChiTiet() {
     }
 
+    public HoaDonChiTiet(int maSach,  int soLuong, int giaTien, int thanhTien) {
+        this.maSach = maSach;
+        this.soLuong = soLuong;
+        this.giaTien = giaTien;
+        this.thanhTien = thanhTien;
+    }
+
     public HoaDonChiTiet(int maHDCT, int maSach, int maHoaDon, int soLuong, int giaTien, int thanhTien) {
         this.maHDCT = maHDCT;
         this.maSach = maSach;

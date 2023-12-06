@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_cn_16"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Thông tin khách hàng"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/bg_blue_cn_16"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="text"
+            android:layout_marginTop="16dp"
+            android:hint="Tên người mua"
+            android:id="@+id/edtTenNguoiMuaItemCart"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Xác nhận mua"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnXacNhanMuaItemCart"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hủy"
+                android:alpha="0.7"
+                android:textSize="14sp"
+                android:backgroundTint="@color/mau_chu_dao"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnHuyItemCart"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

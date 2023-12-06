@@ -59,7 +59,7 @@ public class HoaDonDAO {
         return list;
     }
 
-    public boolean insertHoaDon(HoaDon hd, HoaDonChiTiet hdct){
+    public boolean insertOneHoaDonAndHDCT(HoaDon hd, HoaDonChiTiet hdct){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("manv",hd.getMaNV());
@@ -67,17 +67,17 @@ public class HoaDonDAO {
         values.put("ngaylap",hd.getNgayLap());
         values.put("tongtien",hd.getTongTien());
         values.put("trangthaidonhang",hd.getTrangThaiDonHang());
-        long row =db.insert("HOADON",null,values);
+        long idHD =db.insert("HOADON",null,values);
 
         ContentValues valuesHDCT = new ContentValues();
         valuesHDCT.put("masach",hdct.getMaSach());
-        valuesHDCT.put("mahoadon",row);
+        valuesHDCT.put("mahoadon",idHD);
         valuesHDCT.put("soluong",hdct.getSoLuong());
         valuesHDCT.put("giatien",hdct.getGiaTien());
         valuesHDCT.put("thanhtien",hdct.getThanhTien());
         long rowHDCT =db.insert("HOADONCHITIET",null,valuesHDCT);
         db.close();
-        return ((row != -1 && rowHDCT != -1)?true:false);
+        return ((idHD != -1 && rowHDCT != -1)?true:false);
     }
 
     public boolean updateHoaDon(HoaDon hd){
