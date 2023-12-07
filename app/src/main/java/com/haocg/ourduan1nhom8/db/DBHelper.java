@@ -55,7 +55,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO NHANVIEN VALUES(1,'Nhân Viên A','nhanviena','123','nhanviena@gmail.com','nv','11/15/2023',1,'',1000)," +
                                                 "(2,'Quản lý phụ','admin','123','admin@gmail.com','ad','11/15/2023',1,'',1000)," +
                 "(3,'Quản lý boss','adminssr','123','admin@gmail.com','adssr','11/15/2023',1,'',1000)," +
-                "(4,'Quản lý VIU','adminsss','123','admin@gmail.com','adssr','11/15/2023',0,'',1000)");
+                "(4,'Cao Vi Vu','vivu','123','admin@gmail.com','nv','11/15/2023',0,'',1000)," +
+                "(5,'Cao Vi Vu','v','123','admin@gmail.com','nv','11/15/2023',1,'',1000)");
 
         db.execSQL("INSERT INTO SACH VALUES(1,1,'Doraemon','F.J.F',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',3000,'')," +
                                             "(2,2,'Java for kid 3+','F.Frank',3000,3500,3,'Nhà xuất bản Kim Đồng',2018,'Quầy Thiếu nhi',3000,'')");

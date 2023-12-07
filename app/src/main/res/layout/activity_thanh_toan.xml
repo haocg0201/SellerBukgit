@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="left"
+    android:backgroundTint="@color/white"
+    android:background="@drawable/bg_border_cart"
+    tools:context=".ThanhToanActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:titleTextColor="@color/white"
+        android:id="@+id/toolbarThongTinMuaHang"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TextView
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/txtHienThiThongtin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong tin 1"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtHienThiThongtin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong tin 2"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"/>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/txtHienThiThongtin3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong tin 3"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_cn_10_border_gray"
+            android:padding="12dp"
+            android:inputType="text"
+            android:layout_margin="10dp"
+            android:hint="Tên người mua"
+            android:id="@+id/edtTenNguoiMuaTTMH"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Xác nhận mua"
+                android:layout_marginEnd="10dp"
+                android:textSize="14sp"
+                android:background="@drawable/bg_btn_cn_10"
+                android:id="@+id/btnXacNhanMuaHangTTMH"/>
+
+<!--            <Button-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Hủy"-->
+<!--                android:alpha="0.7"-->
+<!--                android:textSize="14sp"-->
+<!--                android:backgroundTint="@color/mau_chu_dao"-->
+<!--                android:background="@drawable/bg_btn_cn_10"-->
+<!--                android:id="@+id/btnHuyMuaHangTTMH"/>-->
+
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/image_logo_new"/>
+
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -36,10 +37,12 @@ public class KeSachAdapter extends RecyclerView.Adapter<KeSachAdapter.MyViewHold
     private ArrayList<Sach> dataList;
     private int selectedItem = -1;
     AlertDialog dialog;
+    SharedPreferences sharedPreferences;
 
     public KeSachAdapter(Context context, ArrayList<Sach> dataList) {
         this.context = context;
         this.dataList = dataList;
+        sharedPreferences = context.getSharedPreferences("THONGTIN",Context.MODE_PRIVATE);
     }
 
 
@@ -102,36 +105,40 @@ public class KeSachAdapter extends RecyclerView.Adapter<KeSachAdapter.MyViewHold
                     @Override
                     public void onClick(View v) {
                         GioHangDAO gioHangDAO = new GioHangDAO(context);
-                        // chưa lấy đc mã nhân viên khi đăng nhập để thêm vào
-                        GioHang gioHang = gioHangDAO.getGioHangByMaSach(sach.getMaSach());
-                        GioHang gioHangNew;
+                        int maNV = sharedPreferences.getInt("id", 1);
+                        GioHang gioHang = gioHangDAO.getGioHangByMaSachAndMaNV(sach.getMaSach(),maNV);
+                        GioHang gioHangNew = new GioHang();
+                        boolean check = false;
+                        int slMua = 0;
+                        int tt = 0;
                         if (gioHang != null) {
-                            int slMua = gioHang.getSoLuong();
-                            int tt = gioHang.getTongTien();
+                            slMua = gioHang.getSoLuong() + Integer.parseInt(edtSoLuongMua.getText().toString());
+                            tt = gioHang.getTongTien() + Integer.parseInt(txtSoTienCanTT.getText().toString());
+                            check = true;
+                        } else {
                             gioHangNew = new GioHang(
                                     sach.getMaSach(),
-                                    // chưa lấy đc mã nhân viên khi đăng nhập để thêm vào
-                                    1,
-                                    sach.getTenSach(),
-                                    sach.getGiaBan(),
-                                    Integer.parseInt(edtSoLuongMua.getText().toString()) + slMua,
-                                    Integer.parseInt(txtSoTienCanTT.getText().toString()) + tt,
-                                    sach.getAnhSach());
-                        } else {
-                           gioHangNew = new GioHang(
-                                    sach.getMaSach(),
-                                    // chưa lấy đc mã nhân viên khi đăng nhập để thêm vào
-                                    1,
+                                    maNV,
                                     sach.getTenSach(),
                                     sach.getGiaBan(),
                                     Integer.parseInt(edtSoLuongMua.getText().toString()),
                                     Integer.parseInt(txtSoTienCanTT.getText().toString()),
                                     sach.getAnhSach());
                         }
-                        if(gioHangDAO.insertGioHang(gioHangNew)){
-                            Toast.makeText(context,"Đã thêm vào giỏ hàng, chọn thêm đi :))",Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                        }else Toast.makeText(context,"Địa lợi, nhân hòa tuy nhiên không nhân thời :(, chưa thêm vào giỏ hàng",Toast.LENGTH_SHORT).show();
+                        if(check){
+                            if(gioHangDAO.updateGioHangByMaSachAndMaNV(sach.getMaSach(),maNV,slMua,tt)){
+                                Toast.makeText(context, "Đã thêm vào giỏ hàng, chọn thêm đi :)", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            } else
+                                Toast.makeText(context, "Địa lợi, nhân hòa tuy nhiên không nhân thời :(, chưa thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                        }else {
+                            if (gioHangDAO.insertGioHang(gioHangNew)) {
+                                Toast.makeText(context, "Đã thêm vào giỏ hàng, chọn thêm đi :))", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            } else
+                                Toast.makeText(context, "Địa lợi, nhân hòa tuy nhiên không nhân thời :(, chưa thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
                 String imagePath = sach.getAnhSach();
@@ -210,6 +217,7 @@ public class KeSachAdapter extends RecyclerView.Adapter<KeSachAdapter.MyViewHold
                             }
                         } catch (NumberFormatException ignored) {
                             // Ignore NumberFormatException
+                            ignored.printStackTrace();
                         }
                         // Nếu giá trị không hợp lệ, không chấp nhận
                         return "";

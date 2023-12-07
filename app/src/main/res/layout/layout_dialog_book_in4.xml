@@ -204,7 +204,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mua ngay"
+        android:text="Thêm vào giỏ ngay"
         android:alpha="0.7"
         android:textSize="14sp"
         android:backgroundTint="@color/mau_chu_dao"

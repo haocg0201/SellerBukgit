@@ -16,15 +16,21 @@
         android:theme="@style/Theme.OurDuan1Nhom8"
         tools:targetApi="31">
         <activity
+            android:name=".NotifActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThanhToanActivity"
+            android:exported="false" />
+        <activity
             android:name=".fragment.sellerbuk.CartActivity"
             android:exported="false" />
         <activity
             android:name=".SellerBukMainActivity"
             android:exported="true"
-            android:label="@string/title_activity_seller_buk_main"></activity>
+            android:label="@string/title_activity_seller_buk_main" />
         <activity
             android:name=".DangNhap"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,8 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".Welcome"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

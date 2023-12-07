@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center|left"
+    android:layout_marginTop="3.1618dp"
+    android:padding="3dp">
+
+    <TextView
+        android:id="@+id/txtHienThiThongtin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong tin 1"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtHienThiThongtin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong tin 1"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+</LinearLayout>

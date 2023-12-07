@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         //
         drawerLayout.addDrawerListener(drawerToggle);
         replaceFragment(new HomeFragment());
+        mCurrentFragment = FRAGMENT_HOME;
 
         View headerView = navigationView.getHeaderView(0);
         TextView txtCurrentUserName = headerView.findViewById(R.id.txtMainUserName);

@@ -10,6 +10,7 @@ import com.haocg.ourduan1nhom8.model.HoaDon;
 import com.haocg.ourduan1nhom8.model.HoaDonChiTiet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HoaDonDAO {
     DBHelper dbHelper;
@@ -80,6 +81,39 @@ public class HoaDonDAO {
         return ((idHD != -1 && rowHDCT != -1)?true:false);
     }
 
+    public boolean insertOneHoaDonAndManyHDCT(HoaDon hd, ArrayList<HoaDonChiTiet> hoaDonChiTietArrayList ){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("manv",hd.getMaNV());
+        values.put("tenkhachmuahang",hd.getTenKhachHang());
+        values.put("ngaylap",hd.getNgayLap());
+        values.put("tongtien",hd.getTongTien());
+        values.put("trangthaidonhang",hd.getTrangThaiDonHang());
+        long idHD =db.insert("HOADON",null,values);
+
+        List<Long> longArrayList = new ArrayList<>();
+        long rowHDCT = -1;
+        for(HoaDonChiTiet hdct : hoaDonChiTietArrayList){
+            ContentValues valuesHDCT = new ContentValues();
+            valuesHDCT.put("masach",hdct.getMaSach());
+            valuesHDCT.put("mahoadon",idHD);
+            valuesHDCT.put("soluong",hdct.getSoLuong());
+            valuesHDCT.put("giatien",hdct.getGiaTien());
+            valuesHDCT.put("thanhtien",hdct.getThanhTien());
+            rowHDCT =db.insert("HOADONCHITIET",null,valuesHDCT);
+            longArrayList.add(rowHDCT);
+        }
+        int checkRow = -1;
+        for(Long l : longArrayList){
+            if(l == -1){
+                break;
+            }else checkRow = 1;
+        }
+
+        db.close();
+        return ((idHD != -1 && checkRow != -1)?true:false);
+    }
+
     public boolean updateHoaDon(HoaDon hd){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -89,6 +123,14 @@ public class HoaDonDAO {
         values.put("tongtien",hd.getTongTien());
         values.put("trangthaidonhang",hd.getTrangThaiDonHang());
         long row =db.update("HOADON",values,"mahoadon=?",new String[]{String.valueOf(hd.getMaHoaDon())});
+        return (row == -1?false:true);
+    }
+
+    public boolean updateHoaDonByMaHoaDon(int maHD,int status){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("trangthaidonhang",status);
+        long row =db.update("HOADON",values,"mahoadon=?",new String[]{String.valueOf(maHD)});
         return (row == -1?false:true);
     }
 
