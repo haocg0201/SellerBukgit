@@ -2,7 +2,10 @@ package com.haocg.ourduan1nhom8.fragment.sellerbuk;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.bumptech.glide.Glide;
 import com.haocg.ourduan1nhom8.R;
 import com.haocg.ourduan1nhom8.adapter.KeSachAdapter;
 import com.haocg.ourduan1nhom8.adapter.MyAdapter;
@@ -31,6 +35,7 @@ import com.haocg.ourduan1nhom8.model.LoaiSach;
 import com.haocg.ourduan1nhom8.model.Sach;
 import com.haocg.ourduan1nhom8.util.ItemNavLSClick;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,10 +52,10 @@ public class KeSachFragment extends Fragment {
     int maLoaiSachNow = -1;
     Toolbar toolbarSellerBukKeSach;
     EditText edtSearch;
-    ImageView ivSearch;
+    ImageView ivSearch, avatarMini;
     int checkSearch = -1;
 
-
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +70,14 @@ public class KeSachFragment extends Fragment {
         ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbarSellerBukKeSach);
         edtSearch = view.findViewById(R.id.editTextSearchSach);
         ivSearch = view.findViewById(R.id.imageButtonSearchSach);
+        avatarMini = view.findViewById(R.id.ivAvatarMini);
+        sharedPreferences = getContext().getSharedPreferences("THONGTIN", Context.MODE_PRIVATE);
+        String imagePath = sharedPreferences.getString("image","");
+        if(imagePath != null && !imagePath.isEmpty()){
+            Glide.with(getContext())
+                    .load(Uri.fromFile(new File(imagePath)))
+                    .into(avatarMini);
+        }else Glide.with(getContext()).load(R.mipmap.avt).into(avatarMini);
         ImageView ivCart = view.findViewById(R.id.imageButtonCartSach);
         ivSearch.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -71,10 +71,9 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 HoaDonDAO hoaDonDAO = new HoaDonDAO(context);
-                h.setTrangThaiDonHang(1);
-                if(hoaDonDAO.updateHoaDon(h)){
+                if(hoaDonDAO.updateHoaDonByMaHoaDon(h.getMaHoaDon(),1)){
                     list.clear();
-                    list.addAll(hoaDonDAO.getAllHoaDon());
+                    list.addAll(hoaDonDAO.getAllHoaDonModified());
                     notifyDataSetChanged();
                     showResult("Đã đổi trạng thái thành thanh toán");
                 }else showResult("Thật diệu kì, lại lỗi gì nữa đây huhu");
@@ -85,10 +84,9 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 HoaDonDAO hoaDonDAO = new HoaDonDAO(context);
-                h.setTrangThaiDonHang(2);
-                if(hoaDonDAO.updateHoaDon(h)){
+                if(hoaDonDAO.updateHoaDonByMaHoaDon(h.getMaHoaDon(),2)){
                     list.clear();
-                    list.addAll(hoaDonDAO.getAllHoaDon());
+                    list.addAll(hoaDonDAO.getAllHoaDonModified());
                     notifyDataSetChanged();
                     showResult("Đã hủy hóa đơn");
                 }else showResult("Thật diệu kì, lại lỗi gì nữa đây huhu");
