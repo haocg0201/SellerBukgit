@@ -15,16 +15,16 @@ public class Welcome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_welcome);
 
-        ImageView imgLogo = findViewById(R.id.imgChao);
-        Glide.with(this).load(R.drawable.book).into(imgLogo);
+//        ImageView imgLogo = findViewById(R.id.imgChao);
+//        Glide.with(this).load(R.drawable.book).into(imgLogo);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(Welcome.this,DangNhap.class);
                 startActivity(intent);
             }
-        },5000);
+        },2500);
     }
 }

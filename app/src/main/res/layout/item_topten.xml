@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
-    app:cardCornerRadius="15dp"
+    android:background="@drawable/bg_white_cn_10_border_gray"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:background="#19B1F6"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="3.5"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="top|left"
         android:padding="10dp">
         <TextView
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtMaSachT10"/>
+            android:id="@+id/txtTenSachTop10"/>
         <TextView
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTenSachT10"/>
-        <TextView
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtSoLuongMuon"/>
-
+            android:id="@+id/txtSoLuongMuaTop10"/>
     </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="3dp"
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="160dp"
+        android:gravity="center|right"
 
+        app:cardCornerRadius="8dp">
 
-</androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:id="@+id/ivSachItemTop10"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

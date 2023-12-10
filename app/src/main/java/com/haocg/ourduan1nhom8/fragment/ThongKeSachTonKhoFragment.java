@@ -3,64 +3,60 @@ package com.haocg.ourduan1nhom8.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.haocg.ourduan1nhom8.R;
+import com.haocg.ourduan1nhom8.adapter.TKKhoAdapter;
+import com.haocg.ourduan1nhom8.dao.KhoDAO;
+import com.haocg.ourduan1nhom8.model.Kho;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ThongKeSachTonKhoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class ThongKeSachTonKhoFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ThongKeSachTonKhoFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ThongKeSachTonKhoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ThongKeSachTonKhoFragment newInstance(String param1, String param2) {
-        ThongKeSachTonKhoFragment fragment = new ThongKeSachTonKhoFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    KhoDAO khoDAO;
+    RecyclerView rcvTKKho;
+    TKKhoAdapter tkKhoAdapter;
+    ArrayList<Kho> list;
+    Button btnNhieu, btnIt;
+    String getByThis = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_thong_ke_sach_ton_kho, container, false);
+        View view = inflater.inflate(R.layout.fragment_thong_ke_sach_ton_kho, container, false);
+        khoDAO = new KhoDAO(getContext());
+        rcvTKKho = view.findViewById(R.id.rcvDSKhoTKKho);
+        btnNhieu = view.findViewById(R.id.btnTKKhoASC);
+        btnIt = view.findViewById(R.id.btnTKKhoDESC);
+        loadData("");
+        btnNhieu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadData("DESC");
+            }
+        });
+
+        btnIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadData("ASC");
+            }
+        });
+        return view;
+
+    }
+
+    public void loadData(String mew){
+        if(mew == null || mew.isEmpty()){
+            list = khoDAO.getAllKho();
+        }else list = khoDAO.getAllKhoByIncAndDec(mew);
+        tkKhoAdapter = new TKKhoAdapter(getContext(),list);
+        rcvTKKho.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcvTKKho.setAdapter(tkKhoAdapter);
     }
 }

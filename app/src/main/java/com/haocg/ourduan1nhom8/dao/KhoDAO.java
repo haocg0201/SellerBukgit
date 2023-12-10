@@ -36,6 +36,29 @@ public class KhoDAO {
         return list;
     }
 
+    public ArrayList<Kho> getAllKhoByIncAndDec(String meow){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        ArrayList<Kho> list = new ArrayList<>();
+        String query = "";
+        if(meow.equalsIgnoreCase("ASC")){
+            query =  "SELECT vitri, k.masach, s.tensach, soluong FROM KHO k,SACH s WHERE k.masach = s.masach ORDER BY k.soluong ASC";
+        }else query =  "SELECT vitri, k.masach, s.tensach, soluong FROM KHO k,SACH s WHERE k.masach = s.masach ORDER BY k.soluong DESC";
+        Cursor cs = db.rawQuery(query,null);
+        if(cs.getCount()!= 0){
+            cs.moveToFirst();
+            do {
+                list.add(new Kho(
+                        cs.getInt(0),
+                        cs.getInt(1),
+                        cs.getString(2),
+                        cs.getInt(3)
+                ));
+            }while (cs.moveToNext());
+
+        }
+        return list;
+    }
+
     public Kho getKhoByMaSach(String maSach){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Kho k = new Kho();

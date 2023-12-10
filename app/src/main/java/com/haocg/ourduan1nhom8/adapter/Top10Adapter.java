@@ -2,18 +2,22 @@ package com.haocg.ourduan1nhom8.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.haocg.ourduan1nhom8.R;
 import com.haocg.ourduan1nhom8.model.Sach;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
@@ -36,9 +40,19 @@ public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtMaSach.setText("Mã Sách: "+list.get(position).getMaSach());
         holder.txtTenSach.setText("Tên Sách: "+list.get(position).getTenSach());
-        holder.txtSoluong.setText("Tên Tác giả: "+list.get(position).getTenTacGia());
+        holder.txtSoluongMua.setText("Số lượng mua: "+list.get(position).getSoLuongMua());
+        //
+        String imagePath = list.get(position).getAnhSach();
+        // đặt ảnh vào image nè (thông qua Glide)
+        if(imagePath != null && !imagePath.isEmpty()){
+            Glide.with(holder.itemView.getContext())
+//                    .load("file://" + imagePath)
+                    .load(Uri.fromFile(new File(imagePath)))
+                    .into(holder.imageViewAnhSach);
+        }else{
+            Glide.with(context).load(R.mipmap.avt).into(holder.imageViewAnhSach);
+        }
     }
 
     @Override
@@ -46,14 +60,15 @@ public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtMaSach,txtTenSach,txtSoluong;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView txtTenSach,txtSoluongMua;
+        ImageView imageViewAnhSach;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtMaSach = itemView.findViewById(R.id.txtMaSachT10);
-            txtTenSach = itemView.findViewById(R.id.txtTenSachT10);
-            txtSoluong = itemView.findViewById(R.id.txtSoLuongMuon);
+            txtTenSach = itemView.findViewById(R.id.txtTenSachTop10);
+            txtSoluongMua = itemView.findViewById(R.id.txtSoLuongMuaTop10);
+            imageViewAnhSach = itemView.findViewById(R.id.ivSachItemTop10);
         }
 
     }

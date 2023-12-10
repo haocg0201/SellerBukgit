@@ -9,8 +9,12 @@ import com.haocg.ourduan1nhom8.db.DBHelper;
 import com.haocg.ourduan1nhom8.model.HoaDon;
 import com.haocg.ourduan1nhom8.model.HoaDonChiTiet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class HoaDonDAO {
     DBHelper dbHelper;
@@ -38,6 +42,51 @@ public class HoaDonDAO {
         }
         return list;
     }
+
+    public String convertDateFormat(String inputDate) {
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+            SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<HoaDon> getHoaDonByTimeRange(String fromDate, String toDate){
+        ArrayList<HoaDon> list = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        //yyyy/MM/dd
+        String fromDateConverted = convertDateFormat(fromDate);
+        String toDateConverted = convertDateFormat(toDate);
+        fromDateConverted = fromDateConverted.replace("/","");
+        toDateConverted = toDateConverted.replace("/","");
+//
+//        String query = "SELECT * FROM HOADON WHERE strftime('%d/%m/%Y', ngaylap) BETWEEN ? AND ?";
+//        Cursor cs = db.rawQuery(query, new String[]{fromDateConverted, toDateConverted});
+        String query = "SELECT * FROM HOADON WHERE  trangthaidonhang = 1 AND substr(ngaylap,7)||substr(ngaylap,4,2)||substr(ngaylap,1,2) BETWEEN ? AND ?";
+        Cursor cs = db.rawQuery(query, new String[]{fromDateConverted, toDateConverted});
+
+        if(cs.getCount() != 0){
+            cs.moveToFirst();
+            do{
+                list.add(new HoaDon(
+                        cs.getInt(0),
+                        cs.getInt(1),
+                        cs.getString(2),
+                        cs.getString(3),
+                        cs.getInt(4),
+                        cs.getInt(5)
+                ));
+            } while (cs.moveToNext());
+        }
+        cs.close();
+        return list;
+    }
+
 
     public ArrayList<HoaDon> getAllHoaDonModified(){
         ArrayList<HoaDon> list = new ArrayList<>();

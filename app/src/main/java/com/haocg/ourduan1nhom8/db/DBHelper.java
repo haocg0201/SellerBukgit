@@ -17,8 +17,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         //Admin
-        String createTabletbAdmin = "CREATE TABLE ADMIN(MAAD TEXT PRIMARY KEY,HOTEN TEXT,MATKHAU TEXT, LOAITK TEXT )";
-        db.execSQL(createTabletbAdmin);
+//        String createTabletbAdmin = "CREATE TABLE ADMIN(MAAD TEXT PRIMARY KEY,HOTEN TEXT,MATKHAU TEXT, LOAITK TEXT )";
+//        db.execSQL(createTabletbAdmin);
         // NhanVien
         String createTableNhanVien = "create table NHANVIEN(manv INTEGER PRIMARY KEY AUTOINCREMENT,hoten TEXT,taikhoan TEXT, matkhau TEXT,email TEXT, vaitro TEXT, ngaycap TEXT,trangthaitk INTEGER,anhnv TEXT,luong INTEGER)";
         db.execSQL(createTableNhanVien);
@@ -50,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // insert mẫu
 
-        db.execSQL("insert into ADMIN VALUES('nhanvien1','NGHIÊM VAN THỊNH','12345','Admin')");
+//        db.execSQL("insert into ADMIN VALUES('nhanvien1','NGHIÊM VAN THỊNH','12345','Admin')");
 
         db.execSQL("INSERT INTO NHANVIEN VALUES(1,'Nhân Viên A','nhanviena','123','nhanviena@gmail.com','nv','11/15/2023',1,'',1000)," +
                                                 "(2,'Quản lý phụ','admin','123','admin@gmail.com','ad','11/15/2023',1,'',1000)," +
@@ -65,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO KHO VALUES(1,1,1000),(2,2,1000)");
 
-        db.execSQL("INSERT INTO HOADON VALUES(1,1,'Nguyễn Văn Vừa lòng em chưa','11/15/2023',7000,0)");
+        db.execSQL("INSERT INTO HOADON VALUES(1,1,'Nguyễn Văn Vừa lòng em chưa','11/11/2023',7000,0)");
 
         db.execSQL("INSERT INTO HOADONCHITIET VALUES(1,1,1,1,3500,3500),(2,2,1,1,3500,3500)");
 

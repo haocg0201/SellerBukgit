@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
     tools:context=".fragment.ThongKeDoanhThuFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginLeft="10dp"
+                android:text="from" />
 
-</FrameLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="none"
+                android:layout_margin="10dp"
+                android:hint="Từ ngày"
+                android:focusable="false"
+                android:id="@+id/edtfromDate"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginLeft="10dp"
+                android:text="to" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_cn_10_border_gray"
+                android:padding="12dp"
+                android:inputType="none"
+                android:focusable="false"
+                android:layout_margin="10dp"
+                android:hint="đến ngày"
+                android:id="@+id/edtToDate"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thống kê doanh thu"
+        android:layout_margin="10dp"
+        android:textSize="14sp"
+        android:background="@drawable/bg_btn_cn_10"
+        android:id="@+id/btnThongKeDoanhThu"/>
+
+    <TextView
+        android:id="@+id/txtThongKeResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:padding="25dp"
+        android:gravity="center"
+        android:background="@drawable/bg_white_cn_10_border_gray"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rcvThongKeDisplayHoaDon"
+        tools:listitem="@layout/item_rc_tk_dt"
+        android:padding="10dp"/>
+
+</LinearLayout>
