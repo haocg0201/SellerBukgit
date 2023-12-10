@@ -48,8 +48,10 @@ public class DangNhap extends AppCompatActivity {
                         System.out.println("================================ role: " + role);
                         if(role.equalsIgnoreCase("nv")){
                             startActivity(new Intent(DangNhap.this, SellerBukMainActivity.class));
+                            finish();
                         }else {
                             startActivity(new Intent(DangNhap.this,MainActivity.class));
+                            finish();
                         }
                     }else if(nvDAO.checkLogin(user,pass) == -1){
                         Toast.makeText(DangNhap.this, "Tai khoan da bi khoa", Toast.LENGTH_SHORT).show();
