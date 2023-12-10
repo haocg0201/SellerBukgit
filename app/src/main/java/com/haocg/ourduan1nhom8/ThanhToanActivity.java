@@ -130,7 +130,7 @@ public class ThanhToanActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Date crTime = Calendar.getInstance().getTime();
-                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                             String ngay = simpleDateFormat.format(crTime);
                             HoaDon hoaDon = new HoaDon(
                                     maNV,

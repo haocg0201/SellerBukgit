@@ -1,5 +1,6 @@
 package com.haocg.ourduan1nhom8.dao;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -43,6 +44,44 @@ public class SachDAO {
                 ));
             }while (cs.moveToNext());
         }
+        return list;
+    }
+
+    public ArrayList<Sach> getAllSachBanChay(){
+        ArrayList<Sach> list = new ArrayList<>();
+        String query = "SELECT SACH.tensach, SUM(HOADONCHITIET.soluong) AS soluongmua, SACH.anhsach " +
+                "FROM SACH " +
+                "INNER JOIN HOADONCHITIET ON SACH.masach = HOADONCHITIET.masach " +
+                "INNER JOIN HOADON ON HOADONCHITIET.mahoadon = HOADON.mahoadon " +
+                "WHERE HOADON.trangthaidonhang = 1 " +
+                "GROUP BY SACH.tensach, SACH.anhsach " +
+                "ORDER BY soluongmua DESC " +
+                "LIMIT 10";
+        String query_new = " SELECT s.tensach , SUM(hdct.soluong) AS soluongmua, s.anhsach " +
+                "FROM SACH s, HOADONCHITIET hdct, HOADON hd " +
+                "WHERE s.masach = hdct.masach AND hd.mahoadon = hdct.mahoadon AND hd.trangthaidonhang = 1 " +
+                "GROUP BY s.tensach, s.anhsach " +
+                "ORDER BY soluongmua DESC " +
+                "LIMIT 10";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query_new, null);
+
+        if (cursor != null && cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            do {
+                @SuppressLint("Range")
+                String tenSach = cursor.getString(0);
+                @SuppressLint("Range")
+                int soLuongMua = cursor.getInt(1);
+                @SuppressLint("Range")
+                String anhSach = cursor.getString(2);
+                list.add(new Sach(tenSach,anhSach,soLuongMua));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
         return list;
     }
 

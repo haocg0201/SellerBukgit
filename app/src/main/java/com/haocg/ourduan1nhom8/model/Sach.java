@@ -9,6 +9,13 @@ public class Sach {
     private String viTriQuayHang;
     private int soLuongBayBan;
     private String anhSach;
+    private int soLuongMua;
+
+    public Sach(String tenSach, String anhSach, int soLuongMua) {
+        this.tenSach = tenSach;
+        this.anhSach = anhSach;
+        this.soLuongMua = soLuongMua;
+    }
 
     public Sach() {
     }
@@ -192,5 +199,13 @@ public class Sach {
 
     public void setAnhSach(String anhSach) {
         this.anhSach = anhSach;
+    }
+
+    public int getSoLuongMua() {
+        return soLuongMua;
+    }
+
+    public void setSoLuongMua(int soLuongMua) {
+        this.soLuongMua = soLuongMua;
     }
 }

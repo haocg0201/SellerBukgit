@@ -345,13 +345,13 @@ public class NhanVienFragment extends DialogFragment {
     public void showCalenderDialog(EditText edt){
         Calendar calendar = Calendar.getInstance();
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH)+1;
+        int month = calendar.get(Calendar.MONTH);
         int year = calendar.get(Calendar.YEAR);
 
         DatePickerDialog dialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                edt.setText(String.format("%d/%d/%d",dayOfMonth,month,year));
+                edt.setText(String.format("%d/%d/%d",dayOfMonth,month+1,year));
             }
         },year,month,dayOfMonth);
         dialog.show();
