@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.haocg.ourduan1nhom8.dao.SachDAO;
+import com.haocg.ourduan1nhom8.fragment.SuaThongTinTaiKhoanFragment;
 import com.haocg.ourduan1nhom8.fragment.sellerbuk.AddlIn4onFragment;
 import com.haocg.ourduan1nhom8.fragment.sellerbuk.KeSachFragment;
 
@@ -45,7 +46,7 @@ public class SellerBukMainActivity extends AppCompatActivity {
                     }
                 } else if (item.getItemId() == R.id.navigation_more) {
                     if(mCurrentFragment != FRAGMENT_MORE){
-                        replaceFrament(new AddlIn4onFragment());
+                        replaceFrament(new SuaThongTinTaiKhoanFragment());
                         mCurrentFragment = FRAGMENT_MORE;
                     }
 

@@ -8,35 +8,33 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="351dp"
-        android:layout_height="256dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:background="@drawable/book" />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đăng Nhập"
         android:gravity="center"
         android:textSize="40dp"
         android:textStyle="bold"
-        />
+        android:padding="20dp"/>
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-    </LinearLayout>
     <EditText
         android:id="@+id/edtUserNameLoginForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập Email/Tên tài khoản"
         android:background="@drawable/ic_custom"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
     <EditText
@@ -46,6 +44,7 @@
         android:hint="Mật Khẩu"
         android:inputType="textPassword"
         android:background="@drawable/ic_custom"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
     <TextView

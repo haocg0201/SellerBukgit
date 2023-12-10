@@ -67,7 +67,7 @@ public class HoaDonDAO {
 //
 //        String query = "SELECT * FROM HOADON WHERE strftime('%d/%m/%Y', ngaylap) BETWEEN ? AND ?";
 //        Cursor cs = db.rawQuery(query, new String[]{fromDateConverted, toDateConverted});
-        String query = "SELECT * FROM HOADON WHERE  trangthaidonhang = 1 AND substr(ngaylap,7)||substr(ngaylap,4,2)||substr(ngaylap,1,2) BETWEEN ? AND ?";
+        String query = "SELECT mahoadon, hd.manv, nv.hoten, tenkhachmuahang, ngaylap, tongtien, trangthaidonhang FROM HOADON hd, NHANVIEN nv WHERE hd.manv = nv.manv AND trangthaidonhang = 1 AND substr(ngaylap,7)||substr(ngaylap,4,2)||substr(ngaylap,1,2) BETWEEN ? AND ?";
         Cursor cs = db.rawQuery(query, new String[]{fromDateConverted, toDateConverted});
 
         if(cs.getCount() != 0){
@@ -78,8 +78,9 @@ public class HoaDonDAO {
                         cs.getInt(1),
                         cs.getString(2),
                         cs.getString(3),
-                        cs.getInt(4),
-                        cs.getInt(5)
+                        cs.getString(4),
+                        cs.getInt(5),
+                        cs.getInt(6)
                 ));
             } while (cs.moveToNext());
         }

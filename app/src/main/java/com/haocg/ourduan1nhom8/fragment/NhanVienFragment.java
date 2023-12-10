@@ -141,8 +141,7 @@ public class NhanVienFragment extends DialogFragment {
                         nhanVien.setVaiTro("adssr");
                     }
                     NhanVienDAO nhanVienDAO = new NhanVienDAO(getContext());
-                    boolean check = false;
-                    if(check = nhanVienDAO.updateNhanVien(nhanVien)){
+                    if(nhanVienDAO.updateNhanVien(nhanVien)){
                         loadData();
                         resetForm();
                         Toast.makeText(getContext(), "Cập nhật nhân viên thành công", Toast.LENGTH_SHORT).show();

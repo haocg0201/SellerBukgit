@@ -46,6 +46,32 @@ public class NhanVienDAO {
         return list;
     }
 
+    public NhanVien getNhanVienByCheckExist(String user){
+        NhanVien nhanVien = new NhanVien();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("SELECT * FROM NHANVIEN WHERE taikhoan = ?",new String[]{user});
+        if(cs.getCount() != 0){
+            cs.moveToFirst();
+            nhanVien = new NhanVien(
+                    cs.getInt(0),
+                    cs.getString(1),
+                    cs.getString(2),
+                    cs.getString(3),
+                    cs.getString(4),
+                    cs.getString(5),
+                    cs.getString(6),
+                    cs.getInt(7),
+                    cs.getString(8),
+                    cs.getInt(9)
+            );
+        }
+        cs.close();
+        db.close();
+        return nhanVien;
+    }
+
+
+
     public boolean insertNhanVien(NhanVien nv){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -104,7 +130,7 @@ public class NhanVienDAO {
                 editor.putString("role",cs.getString(5));
                 editor.putString("image",cs.getString(8));
                 editor.apply();
-                return 1; // dn
+                return 1; // act
             } else return -1; // locked
         }else{
             return 0; // sai tk or mk
@@ -121,5 +147,24 @@ public class NhanVienDAO {
         } else {
             return 0; // Không thành công
         }
+    }
+
+    public boolean checkAccountExistence(String taiKhoan) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "SELECT COUNT(*) FROM NHANVIEN WHERE taikhoan = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{taiKhoan});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int count = cursor.getInt(0);
+            if (count > 0) {
+                cursor.close();
+                return true;
+            }
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+        db.close();
+        return false;
     }
 }

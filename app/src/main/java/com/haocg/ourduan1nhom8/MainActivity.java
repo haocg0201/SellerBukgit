@@ -198,13 +198,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        String role = sharedPreferences.getString("role","");
-//        if(!role.equals("ad")){
-//            Menu menu = navigationView.getMenu();
-//            menu.findItem(R.id.).setVisible(false);
-//            menu.findItem(R.id.).setVisible(false);
-//            menu.findItem(R.id.).setVisible(false);
-//        }
+        String role = sharedPreferences.getString("role","");
+        if(role.equals("ad")){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mQLNV).setVisible(false);
+        }
 
     }
 
