@@ -22,9 +22,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.haocg.ourduan1nhom8.R;
+import com.haocg.ourduan1nhom8.dao.HoaDonChiTietDAO;
 import com.haocg.ourduan1nhom8.dao.HoaDonDAO;
+import com.haocg.ourduan1nhom8.dao.SachDAO;
 import com.haocg.ourduan1nhom8.fragment.HoaDonChiTietDialogFragment;
 import com.haocg.ourduan1nhom8.model.HoaDon;
+import com.haocg.ourduan1nhom8.model.HoaDonChiTiet;
+import com.haocg.ourduan1nhom8.model.Sach;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,10 +38,15 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.ViewHolder
     private Context context;
     private ArrayList<HoaDon> list;
     private AlertDialog dialog;
+    private ArrayList<HoaDonChiTiet> listHDCT;
+    private HoaDonChiTietDAO hoaDonChiTietDAO;
+    private SachDAO sachDAO;
 
     public HoaDonAdapter(Context context, ArrayList<HoaDon> list) {
         this.context = context;
         this.list = list;
+        hoaDonChiTietDAO = new HoaDonChiTietDAO(context);
+        sachDAO = new SachDAO(context);
     }
 
     @NonNull
@@ -79,6 +88,12 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.ViewHolder
             public void onClick(View v) {
                 HoaDonDAO hoaDonDAO = new HoaDonDAO(context);
                 if(hoaDonDAO.updateHoaDonByMaHoaDon(h.getMaHoaDon(),1)){
+                    listHDCT = hoaDonChiTietDAO.getAllHoaDonChiTietByMaHoaDon(String.valueOf(h.getMaHoaDon()));
+                    for (HoaDonChiTiet h : listHDCT){
+                        Sach s = sachDAO.getSachAndSoLuongBayBanByMaSach(String.valueOf(h.getMaSach()));
+                        s.setSoLuongBayBan(s.getSoLuongBayBan()-h.getSoLuong());
+                        sachDAO.updateSoLuongSach(s);
+                    }
                     list.clear();
                     list.addAll(hoaDonDAO.getAllHoaDonModified());
                     notifyDataSetChanged();
