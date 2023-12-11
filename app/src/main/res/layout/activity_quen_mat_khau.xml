@@ -7,21 +7,25 @@
     tools:context=".QuenMatKhau"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbarQMK"/>
+
     <ImageView
         android:layout_width="351dp"
         android:layout_height="256dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="10sp"
         android:background="@drawable/book" />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Quên Mật Khẩu"
         android:gravity="center"
         android:textSize="40dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:gravity="center"
@@ -32,40 +36,52 @@
 
     </LinearLayout>
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtTenTaiKhoanQMK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập Tên Tài Khoản"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:background="@drawable/ic_custom"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
     <EditText
-        android:id="@+id/edtUserName"
+        android:id="@+id/edtEmailQMK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập Mật Khẩu"
+        android:hint="Nhập Email"
+        android:inputType="textEmailAddress"
         android:background="@drawable/ic_custom"
-        android:layout_margin="10dp"
-        />
-    <EditText
-        android:id="@+id/edtPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập Lại Mật Khẩu"
-        android:inputType="textPassword"
-        android:background="@drawable/ic_custom"
-        android:layout_margin="10dp"
-        />
+        android:padding="10dp"
+        android:layout_margin="10dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="something"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/txtMaXacNhanQMK"/>
+
+    <EditText
+        android:id="@+id/edtXacNhanMaQMK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã xác nhận"
+        android:background="@drawable/ic_custom"
+        android:inputType="number"
+        android:padding="10dp"
+        android:layout_margin="10dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btnGuiMK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Xác Nhận"
+        android:text="Gửi mật khẩu"
         android:textColor="@color/white"
-        android:layout_marginHorizontal="20sp"
+        android:layout_marginHorizontal="10sp"
         android:background="@drawable/background_button"
         android:layout_marginTop="20dp"/>
 

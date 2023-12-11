@@ -65,8 +65,10 @@ public class NhanVienDAO {
                     cs.getInt(9)
             );
         }
-        cs.close();
-        db.close();
+        if (cs != null) {
+            cs.close();
+            db.close();
+        }
         return nhanVien;
     }
 

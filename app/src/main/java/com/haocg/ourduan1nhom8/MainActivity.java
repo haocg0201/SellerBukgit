@@ -199,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         String role = sharedPreferences.getString("role","");
+        Menu menu = navigationView.getMenu();
         if(role.equals("ad")){
-            Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLNV).setVisible(false);
         }
-
+        menu.findItem(R.id.mDoiMK).setVisible(false);
     }
 
     @Override

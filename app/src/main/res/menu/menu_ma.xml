@@ -8,47 +8,47 @@
     <item
         android:id="@+id/mQLSach"
         android:title="Quản lý sách"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_menu_book_24"/>
 
     <item
         android:id="@+id/mQLLS"
         android:title="Quản lý loại sách"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_type_specimen_24"/>
 
     <item
         android:id="@+id/mQLKho"
         android:title="Quản lý kho"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_auto_awesome_mosaic_24"/>
 
     <item
         android:id="@+id/mQLHD"
         android:title="Quản lý hóa đơn"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_assignment_24"/>
 
     <item
         android:id="@+id/mQLHDCT"
         android:title="Quản lý hóa đơn chi tiết"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_assignment_24"/>
 
     <item
         android:id="@+id/mQLNV"
         android:title="Quản lý nhân viên"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/baseline_supervisor_account_24"/>
 
     <item android:title="Thống kê">
         <menu>
             <item
                 android:id="@+id/mTKDT"
                 android:title="Thống kê doanh thu"
-                android:icon="@drawable/ic_home"/>
+                android:icon="@drawable/baseline_currency_bitcoin_24"/>
             <item
                 android:id="@+id/mTKTOP"
                 android:title="Thống kê sách hàng đầu"
-                android:icon="@drawable/ic_home"/>
+                android:icon="@drawable/baseline_book_24"/>
             <item
                 android:id="@+id/mTKTonKho"
                 android:title="Thống kê tồn kho"
-                android:icon="@drawable/ic_home"/>
+                android:icon="@drawable/baseline_border_all_24"/>
         </menu>
     </item>
 
@@ -57,7 +57,7 @@
             <item
                 android:id="@+id/mSuaTTTK"
                 android:title="Sửa thông tin tài khoản"
-                android:icon="@drawable/ic_home"/>
+                android:icon="@drawable/baseline_directions_run_24"/>
             <item
                 android:id="@+id/mDoiMK"
                 android:title="Đổi mật khẩu"
@@ -65,7 +65,7 @@
             <item
                 android:id="@+id/mDangXuat"
                 android:title="Đăng xuất"
-                android:icon="@drawable/ic_home"/>
+                android:icon="@drawable/baseline_switch_account_24"/>
         </menu>
     </item>
 

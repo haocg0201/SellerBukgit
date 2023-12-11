@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.haocg.ourduan1nhom8.dao.AdminDAO;
@@ -20,6 +21,7 @@ public class DangNhap extends AppCompatActivity {
     @SuppressLint({"MissingInflatedId", "LocalSuppress"})
     Button btnLogin;
     EditText edtUser, edtPassword;
+    TextView txtCallFormQuenMatKhau;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,16 @@ public class DangNhap extends AppCompatActivity {
         edtUser = findViewById(R.id.edtUserNameLoginForm);
         edtPassword = findViewById(R.id.edtPasswordLoginForm);
         btnLogin = findViewById(R.id.btn_login_login_form);
+        txtCallFormQuenMatKhau = findViewById(R.id.txtCallFormQuenMatKhau);
         AdminDAO dao = new AdminDAO(this);
         NhanVienDAO nvDAO = new NhanVienDAO(this);
         setLoginFormIn4Re();
+        txtCallFormQuenMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DangNhap.this, QuenMatKhau.class));
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
